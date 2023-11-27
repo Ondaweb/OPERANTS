@@ -1,7 +1,5 @@
-# new version for Sanjeev with only operants and fixers to illustrate operation of 
-# basic rules
-# 
-#
+# A version with only operants and fixers to illustrate the basic operation of 
+# the matracies and rules for synaptic modification.
 require 'matrix'
 class Matrix
   def []=(i, j, x)
@@ -26,9 +24,9 @@ longmem=Matrix[ [0,0,0,0,90,0,0,0],
 				[0,0,90,0,0,0,1,-1],
 				[0,0,0,90,0,0,1,-1] ]
 stimulus=Matrix.column_vector([0,0,0,0,0,0,0,0])
-stims=[0,1,2,3,4,5,] #kludge to deal with light on/of esp. in learn, Short T decay
+stims=[0,1,2,3,4,5,] #kludge to deal with light on/of esp. in learn, decay
 behavior=Matrix.column_vector([0,0,0,0,0,0])
-t=700 # t=threshold
+Threshold=700
 energy=100
 decay_rate=2
 lighton=0
@@ -115,14 +113,13 @@ for j in (6..$Stimmax)
   if brain[i,j]<longmem[i,j] then brain[i,j]+=-1*((brain[i,j]+longmem[i,j])/decay_rate) end
 end #for j
 end #for i
-
 behavior=brain*stimulus
-if behavior[0,0] > t then positive_fixer(brain, stimulus, longmem, energy) end
-if behavior[1,0] > t then negative_fixer(brain, stimulus, longmem) end
-if behavior[2,0] > t then operant_1(brain, stimulus) end
-if behavior[3,0] > t then operant_2(brain, stimulus) end
-if behavior[4,0] > t then operant_3(brain, stimulus) end
-if behavior[5,0] > t then operant_4(brain, stimulus) end
+if behavior[0,0] > Threshold then positive_fixer(brain, stimulus, longmem, energy) end
+if behavior[1,0] > Threshold then negative_fixer(brain, stimulus, longmem) end
+if behavior[2,0] > Threshold then operant_1(brain, stimulus) end
+if behavior[3,0] > Threshold then operant_2(brain, stimulus) end
+if behavior[4,0] > Threshold then operant_3(brain, stimulus) end
+if behavior[5,0] > Threshold then operant_4(brain, stimulus) end
 # Insert delay to spread out behavior
 energy -= 1
 end # while energy > 0
