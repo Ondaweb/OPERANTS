@@ -114,7 +114,6 @@ while (energy>0) do
 		if brain[i,j]<longmem[i,j] then brain[i,j]+=((longmem[i,j]-brain[i,j])*Decay_Rate).round end
 	end #for j
 	end #for i
-
 	behavior=brain*stimulus
 	if behavior[0,0] > Threshold then positive_fixer(brain, stimulus, longmem, energy) end
 	if behavior[1,0] > Threshold then negative_fixer(brain, stimulus, longmem) end
@@ -129,7 +128,6 @@ puts
 puts "					It's dead Jim."
 brain.to_a.each {|r| puts r.inspect}
 puts
-brain
 longmem.to_a.each {|r| puts r.inspect}
 
 
