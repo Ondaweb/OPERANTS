@@ -2,6 +2,7 @@
 # matracies and rules for synaptic modification. NOW MODIFIED to include essentially
 # accurate implementation of eligibilty hypothesis. Though immaterial here since light is
 # only stimulus and it's either on or off.  Port to affects next!
+# From Eligibility0 on mac/ruby
 require 'matrix'
 def read1maybe
   return $stdin.read_nonblock 1
