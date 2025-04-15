@@ -31,15 +31,13 @@ stimulus=Matrix.column_vector([0,0,0,0,0,0,0,0])
 behavior=Matrix.column_vector([0,0,0,0,0,0])
 eligibility=Matrix.column_vector([0,0])
 lighton=0
-energy=200
+energy=20
 srand(2000)
 
 def learn(ix, brain, eligibility)
   for j in (6..StimMax)
     if brain[ix,j] > 0 && eligibility[j-6,0] !=0
-       #print "#{brain[ix,j]}  "
        brain[ix,j]+=(((BrainMax-brain[ix,j])*eligibility[j-6,0]/4)).round
-       #puts brain[ix,j]
     end
     if brain[ix,j] < 0 && eligibility[j-6,0] !=0
       brain[ix,j]+=(((-BrainMax-brain[ix,j])*eligibility[j-6,0]/4)).round
