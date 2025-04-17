@@ -1,7 +1,7 @@
 # A version with only operants and fixers to illustrate the basic operation of
 # matracies and rules for synaptic modification. NOW MODIFIED to include essentially
 # accurate implementation of eligibilty hypothesis. Though immaterial here since light is
-# only stimulus and it's always on.print "new version from GitHub"
+# only stimulus and it's always on.
 require 'matrix'
 
 def read1maybe
@@ -16,7 +16,7 @@ BehavMax = 5
 BrainMax = 90
 BrainMin = 1
 Decay_Rate = 0.5
-ReinforcementMax = 10
+ReinforcementMax = 4
 $reinforcements = 0
 
 brain = Matrix[
@@ -35,7 +35,7 @@ behavior = Matrix.column_vector([0,0,0,0,0,0])
 eligibility = Matrix.column_vector([0,0])
 lighton = 0
 
-srand(2000)
+# srand(2000)
 
 def learn(ix, brain, eligibility)
   for j in (6..StimMax)
@@ -164,6 +164,6 @@ end
 update_thread.kill
 puts
 puts "					It’s dead Jim."
-brain.to_a.each {|r| puts r.inspect}
+# brain.to_a.each {|r| puts r.inspect}
 puts
 longmem.to_a.each {|r| puts r.inspect}
