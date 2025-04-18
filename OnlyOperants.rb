@@ -16,7 +16,7 @@ BehavMax = 5
 BrainMax = 90
 BrainMin = 1
 Decay_Rate = 0.5
-ReinforcementMax = 4
+ReinforcementMax = 6
 $reinforcements = 0
 
 brain = Matrix[
@@ -70,22 +70,22 @@ def negative_fixer(brain, longmem)
 end
 
 def operant_1(brain, eligibility)
-  puts "					Moves forward"
+  puts "				   FORWARD"
   learn(2, brain, eligibility)
 end
 
 def operant_2(brain, eligibility)
-  puts "					Turns left"
+  puts "		  LEFT"
   learn(3, brain, eligibility)
 end
 
 def operant_3(brain, eligibility)
-  puts "					Turns right"
+  puts "					             RIGHT"
   learn(4, brain, eligibility)
 end
 
 def operant_4(brain, eligibility)
-  puts "					Moves Back"
+  puts "					      BACK"
   learn(5, brain, eligibility)
 end
 
