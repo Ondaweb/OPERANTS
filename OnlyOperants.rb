@@ -108,8 +108,14 @@ while ($reinforcements < ReinforcementMax) do
     look += 1
   end
   case q
-  when "f" then stimulus[4,0]=1 and puts "ood!"
-  when "p" then stimulus[5,0]=1 and puts "unish"
+  when "f"
+    stimulus[4,0] = 1
+    puts "ood!"
+    $stdout.flush
+  when "p"
+    stimulus[5,0] = 1
+    puts "unish"
+    $stdout.flush
   when "l"
     if lighton == 1
       lighton = 0
@@ -127,6 +133,7 @@ while ($reinforcements < ReinforcementMax) do
     longmem.to_a.each {|r| puts r.inspect}
     exit
   end
+
   input = true if q.length > 0
 
   if lighton == 1
