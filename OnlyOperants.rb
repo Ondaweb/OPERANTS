@@ -16,7 +16,7 @@ BehavMax = 5
 BrainMax = 90
 BrainMin = 1
 Decay_Rate = 0.5
-ReinforcementMax = 6
+ReinforcementsMax = 6
 $reinforcements = 0
 
 brain = Matrix[
@@ -97,7 +97,7 @@ update_thread = Thread.new do
 end
 
 # ✅ Loop until enough reinforcements have occurred
-while ($reinforcements < ReinforcementMax) do
+while ($reinforcements < ReinforcementsMax) do
   stimulus.each_with_index { |element, i| stimulus[i, 0] = 0 }
   input = false
   system 'stty cbreak'
